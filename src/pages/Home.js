@@ -4,7 +4,7 @@ const HomePage = () => {
   const content = {
     title: 'Welcome to the Vehicle Repair Hub',
     article:
-      'This project was bootstrapped with Create React App and Redux + SASS Structure.',
+      'This project was bootstapped with Create React App and Redux + SASS Structure.',
   };
 
   return (
