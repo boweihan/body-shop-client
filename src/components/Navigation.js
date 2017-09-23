@@ -7,6 +7,8 @@ const Navigation = ({ buttonClassName }) =>
       <li><Link className={{ buttonClassName }} to="/">Home</Link></li>
       <li><Link className={{ buttonClassName }} to="job">Post a Job</Link></li>
       <li><Link className={{ buttonClassName }} to="estimate">Quote a Job</Link></li>
+      <li><Link className={{ buttonClassName }} to="signup">Sign Up</Link></li>
+      <li><Link className={{ buttonClassName }} to="login">Login</Link></li>
     </ul>
   );
 
