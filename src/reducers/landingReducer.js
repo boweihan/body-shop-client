@@ -4,7 +4,7 @@ const loginState = {
   showLoginForm: true,
 };
 
-const showLoginForm = (state = loginState, action) => {
+const landingReducer = (state = loginState, action) => {
   switch (action.type) {
     case types.TOGGLE_LANDING_FORM:
       return Object.assign({}, state, {
@@ -15,4 +15,4 @@ const showLoginForm = (state = loginState, action) => {
   }
 };
 
-export default showLoginForm;
+export default landingReducer;

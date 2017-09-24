@@ -27,9 +27,12 @@ const Login = (props) => {
             <label htmlFor="password">{content.password}</label>
           </div>
         </div>
-        <a className="waves-effect waves-light btn c-button brown">
+        <a onClick={props.login} role="link" tabIndex="-1" className="waves-effect waves-light btn c-button brown">
           <i className="material-icons right">cloud</i>
-          {content.login}
+          {props.requestPending ?
+            <div className="c-spinner" /> :
+            content.login
+          }
         </a>
         <a role="link" tabIndex="-1" onClick={props.toggleForm} className="c-login__link">{content.toggleMessage}</a>
       </form>
@@ -39,6 +42,8 @@ const Login = (props) => {
 
 Login.propTypes = {
   toggleForm: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
+  requestPending: PropTypes.bool.isRequired,
 };
 
 export default Login;

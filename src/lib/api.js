@@ -24,7 +24,7 @@ class Api {
   }
 
   static xhr(route, params, verb) {
-    const host = 'http://www.recipepuppy.com';
+    const host = 'https://bsa-server.herokuapp.com';
     const url = `${host}${route}`;
     const options = Object.assign({ method: verb }, params ? { body: JSON.stringify(params) } : null);
     options.headers = Api.headers();
@@ -34,7 +34,7 @@ class Api {
         return json;
       }
       return json.then((err) => { throw err; });
-    }).then(json => json.results);
+    });
   }
 }
 export default Api;
