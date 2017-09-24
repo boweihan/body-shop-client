@@ -8,6 +8,7 @@ const Login = (props) => {
     email: 'Email',
     password: 'Password',
     login: 'Login',
+    toggleMessage: 'New User? Sign Up.',
   };
 
   return (
@@ -30,7 +31,7 @@ const Login = (props) => {
           <i className="material-icons right">cloud</i>
           {content.login}
         </a>
-        <a role="link" tabIndex="-1" onClick={props.toggleForm} className="">New User? Sign up</a>
+        <a role="link" tabIndex="-1" onClick={props.toggleForm} className="c-login__link">{content.toggleMessage}</a>
       </form>
     </div>
   );

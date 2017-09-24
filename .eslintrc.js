@@ -6,6 +6,7 @@ module.exports = {
         "react/forbid-prop-types": ["error", { "forbid": [] }],
         "jsx-a11y/href-no-hash": "off",
         "jsx-a11y/label-has-for": "off",
-        "import/prefer-default-export": "off"
+        "import/prefer-default-export": "off",
+        "arrow-body-style": "off"
     }
 };

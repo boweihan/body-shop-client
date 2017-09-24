@@ -2,11 +2,11 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import thunkMiddleware from 'redux-thunk';
 
-import appReducers from './reducers/index';
+import landingReducer from './reducers/landingReducer';
 
 export function configureStore(history, initialState) {
   const reducer = combineReducers({
-    appReducers,
+    landingReducer,
     routing: routerReducer,
   });
 

@@ -64,6 +64,6 @@ export default connect(
     weatherState: state.weatherReducer
   }),
   dispatch => ({
-    actions: bindActionCreators(weatherActions, dispatch)
+    actions: bindActionCreators(landingActions, dispatch)
   })
 )(Weather)

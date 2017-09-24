@@ -1,12 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const SignUp = () => {
+const SignUp = (props) => {
   const content = {
     firstName: 'First Name',
     lastName: 'Last Name',
     email: 'Email',
     password: 'Password',
     signUp: 'Sign Up',
+    toggleMessage: 'Existing User? Login.',
   };
 
   return (
@@ -39,9 +41,14 @@ const SignUp = () => {
           <i className="material-icons right">cloud</i>
           {content.signUp}
         </a>
+        <a role="link" tabIndex="-1" onClick={props.toggleForm} className="c-login__link">{content.toggleMessage}</a>
       </form>
     </div>
   );
+};
+
+SignUp.propTypes = {
+  toggleForm: PropTypes.func.isRequired,
 };
 
 export default SignUp;
