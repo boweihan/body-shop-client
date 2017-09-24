@@ -1,20 +1,17 @@
 import React from 'react';
+import movie from '../videos/landing.mp4';
 
 const HomePage = () => {
   const content = {
-    title: 'Welcome to the Vehicle Repair Hub',
-    article:
-      'This project was bootstapped with Create React App and Redux + SASS Structure.',
+    imageAlt: 'Car being repaired',
   };
 
   return (
-    <main className="p-home">
-      <h3 className="p-home__title">
-        {content.title}
-      </h3>
-      <article className="p-home__article">
-        {content.article}
-      </article>
+    <main>
+      <video className="c-video" playsinline autoPlay muted loop>
+        <track kind="captions" />
+        <source src={movie} type="video/mp4" />
+      </video>
     </main>
   );
 };
