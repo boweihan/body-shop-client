@@ -1,19 +1,13 @@
 import React from 'react';
-import movie from '../videos/landing.mp4';
+import LandingForm from '../containers/ToggleLandingForm';
 
-const HomePage = () => {
-  const content = {
-    imageAlt: 'Car being repaired',
-  };
-
-  return (
+const HomePage = () =>
+  (
     <main>
-      <video className="c-video" playsinline autoPlay muted loop>
-        <track kind="captions" />
-        <source src={movie} type="video/mp4" />
-      </video>
+      <div className="c-image" />
+      <LandingForm />
     </main>
   );
-};
+
 
 export default HomePage;

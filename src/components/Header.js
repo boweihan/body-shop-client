@@ -7,7 +7,7 @@ const Header = () =>
       <div className="nav-wrapper brown darken-3">
         <a href="/" className="brand-logo p-header__title">
           <i className="material-icons">build</i>
-          Vehicle Repair Hub
+          Unscratch
         </a>
         <Navigation />
       </div>

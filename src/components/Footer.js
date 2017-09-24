@@ -22,7 +22,7 @@ const Footer = () =>
       </div>
       <div className="footer-copyright brown darken-3">
         <div className="container">
-          © 2017 Copyright AutoRepairHub
+          © 2017 Copyright Unscratch
           <a className="grey-text text-lighten-4 right" href="#!">Contact</a>
         </div>
       </div>
