@@ -1,18 +1,23 @@
 import * as types from '../constants/ActionTypes';
 
 const userState = {
-  userObject: {},
-  authenticationToken: null,
+  currentUser: null,
   requestPending: false,
 };
 
-const userReducer = (state = userState, action, userObject) => {
+const userReducer = (state = userState, action) => {
   switch (action.type) {
     case types.USER_LOGIN:
-      return Object.assign({}, state, userObject);
+      return Object.assign({}, state);
+    case types.USER_LOGOUT:
+      return Object.assign({}, state);
     case types.LOGIN_SUCCESS:
       return Object.assign({}, state, {
-        userObject,
+        currentUser: action.currentUser,
+        requestPending: false,
+      });
+    case types.LOGIN_FAILED:
+      return Object.assign({}, state, {
         requestPending: false,
       });
     case types.LOGIN_SHOW_LOADING:

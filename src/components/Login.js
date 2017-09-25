@@ -17,13 +17,25 @@ const Login = (props) => {
       <form className="col s4 middle c-landing__form">
         <div className="row">
           <div className="input-field col s12">
-            <input id="email" type="email" className="validate" />
+            <input
+              onChange={props.handleChange}
+              value={props.state.email ? props.state.email : ''}
+              id="email"
+              type="email"
+              className="validate"
+            />
             <label htmlFor="email">{content.email}</label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
-            <input id="password" type="password" className="validate" />
+            <input
+              onChange={props.handleChange}
+              value={props.state.password ? props.state.password : ''}
+              id="password"
+              type="password"
+              className="validate"
+            />
             <label htmlFor="password">{content.password}</label>
           </div>
         </div>
@@ -44,6 +56,8 @@ Login.propTypes = {
   toggleForm: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
   requestPending: PropTypes.bool.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  state: PropTypes.object,
 };
 
 export default Login;

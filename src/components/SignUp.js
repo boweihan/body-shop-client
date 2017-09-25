@@ -17,29 +17,60 @@ const SignUp = (props) => {
       <form className="col s4 middle c-landing__form">
         <div className="row">
           <div className="input-field col s6">
-            <input id="first_name" type="text" className="validate" />
-            <label htmlFor="first_name">{content.firstName}</label>
+            <input
+              onChange={props.handleChange}
+              value={props.state.firstName}
+              id="firstName"
+              type="text"
+              className="validate"
+            />
+            <label htmlFor="firstName">{content.firstName}</label>
           </div>
           <div className="input-field col s6">
-            <input id="last_name" type="text" className="validate" />
-            <label htmlFor="last_name">{content.lastName}</label>
+            <input
+              onChange={props.handleChange}
+              value={props.state.lastName}
+              id="lastName"
+              type="text"
+              className="validate"
+            />
+            <label htmlFor="lastName">{content.lastName}</label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
-            <input id="email" type="email" className="validate" />
-            <label htmlFor="email">{content.email}</label>
+            <input
+              onChange={props.handleChange}
+              value={props.state.email}
+              id="email"
+              type="email"
+              className="validate"
+            />
+            <label htmlFor="email">
+              {content.email}
+            </label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
-            <input id="password" type="password" className="validate" />
-            <label htmlFor="password">{content.password}</label>
+            <input
+              onChange={props.handleChange}
+              value={props.state.password}
+              id="password"
+              type="password"
+              className="validate"
+            />
+            <label htmlFor="password">
+              {content.password}
+            </label>
           </div>
         </div>
-        <a className="waves-effect waves-light btn c-button brown">
+        <a onClick={props.signUp} role="link" tabIndex="-1" className="waves-effect waves-light btn c-button brown">
           <i className="material-icons right">cloud</i>
-          {content.signUp}
+          {props.requestPending ?
+            <div className="c-spinner" /> :
+            content.signUp
+          }
         </a>
         <a role="link" tabIndex="-1" onClick={props.toggleForm} className="c-login__link">{content.toggleMessage}</a>
       </form>
@@ -49,6 +80,10 @@ const SignUp = (props) => {
 
 SignUp.propTypes = {
   toggleForm: PropTypes.func.isRequired,
+  requestPending: PropTypes.bool.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  signUp: PropTypes.func.isRequired,
+  state: PropTypes.object,
 };
 
 export default SignUp;

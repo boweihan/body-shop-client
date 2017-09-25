@@ -5,9 +5,6 @@ import { Provider } from 'react-redux';
 // If your server supports server rendering, use browserHistory replace with hashHistory.
 import { Router, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import 'jquery';
-import 'materialize-css';
-import 'materialize-css/dist/css/materialize.min.css';
 import { configureStore } from './store';
 import registerServiceWorker from './registerServiceWorker';
 import routes from './routes';

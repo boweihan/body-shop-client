@@ -7,6 +7,7 @@ module.exports = {
         "jsx-a11y/href-no-hash": "off",
         "jsx-a11y/label-has-for": "off",
         "import/prefer-default-export": "off",
-        "arrow-body-style": "off"
+        "arrow-body-style": "off",
+        "react/require-default-props": "off",
     }
 };
