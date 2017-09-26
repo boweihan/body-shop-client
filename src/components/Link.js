@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Link = ({ active, children, onClick }) => {
   if (active) {
@@ -22,6 +23,12 @@ const Link = ({ active, children, onClick }) => {
       {children}
     </a>
   );
+};
+
+Link.propTypes = {
+  active: PropTypes.bool,
+  children: PropTypes.object,
+  onClick: PropTypes.func,
 };
 
 export default Link;

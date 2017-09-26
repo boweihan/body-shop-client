@@ -10,7 +10,7 @@ import registerServiceWorker from './registerServiceWorker';
 import routes from './routes';
 import './styles/main.css';
 
-const state = window.__initialState__ || undefined;
+const state = window.__initialState__ || undefined; // eslint-disable-line
 const store = configureStore(hashHistory, state);
 const history = syncHistoryWithStore(hashHistory, store);
 
@@ -18,6 +18,6 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history} routes={routes} />
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root'), // eslint-disable-line
 );
 registerServiceWorker();

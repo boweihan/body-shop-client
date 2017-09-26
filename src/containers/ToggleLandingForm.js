@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import * as landingActions from '../actions/landingActions';
-import * as userActions from '../actions/userActions';
+import * as landingActions from '../redux/actions/landingActions';
+import * as userActions from '../redux/actions/userActions';
 import Login from '../components/Login';
 import SignUp from '../components/SignUp';
 
@@ -11,10 +11,10 @@ class ToggleLandingForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: null,
-      lastName: null,
-      email: null,
-      password: null,
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
       errors: null,
     };
     this.toggleForm = this.toggleForm.bind(this);
@@ -53,6 +53,7 @@ class ToggleLandingForm extends React.Component {
     const requestPending = this.props.userReducer.requestPending;
     const currentUser = this.props.userReducer.currentUser;
     if (currentUser) {
+      // DO SOMETHING...
       return <div>bop</div>;
     }
     return this.props.landingReducer.showLoginForm ?
