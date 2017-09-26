@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import * as landingActions from '../redux/actions/landingActions';
 import * as userActions from '../redux/actions/userActions';
-import Landing from '../components/Landing';
+import LandingMain from '../components/LandingMain';
+import LandingInfo from '../components/LandingInfo';
 
 class HomeContainer extends React.Component {
   constructor(props) {
@@ -13,7 +14,12 @@ class HomeContainer extends React.Component {
   }
 
   render() {
-    return <Landing />;
+    return (
+      <div>
+        <LandingMain />
+        <LandingInfo />
+      </div>
+    );
   }
 }
 
