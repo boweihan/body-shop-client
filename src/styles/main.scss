@@ -2,17 +2,7 @@
 
 @import "config/variable";
 
-@import "config/color";
-
 @import "base/normalize",
         "base/typography";
 
-@import "components/button",
-        "components/landing",
-        "components/login",
-        "components/spinner";
-
-@import "pages/home",
-        "pages/todo",
-        "pages/header",
-        "pages/app";
+@import "components/landing";
