@@ -7,7 +7,7 @@ import * as userActions from '../redux/actions/userActions';
 import Login from '../components/Login';
 import SignUp from '../components/SignUp';
 
-class ToggleLandingForm extends React.Component {
+class HomeContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -62,7 +62,7 @@ class ToggleLandingForm extends React.Component {
   }
 }
 
-ToggleLandingForm.propTypes = {
+HomeContainer.propTypes = {
   landingReducer: PropTypes.object.isRequired,
   landingActions: PropTypes.object.isRequired,
   userReducer: PropTypes.object.isRequired,
@@ -79,4 +79,4 @@ export default connect(
     landingActions: bindActionCreators(landingActions, dispatch),
     userActions: bindActionCreators(userActions, dispatch),
   }),
-)(ToggleLandingForm);
+)(HomeContainer);
