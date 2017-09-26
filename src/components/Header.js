@@ -1,21 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router';
+import AppBar from 'material-ui/AppBar';
+import { Tabs, Tab } from 'material-ui/Tabs';
+import { grey900 } from 'material-ui/styles/colors';
+
+const styles = {
+  nav: {
+    backgroundColor: 'white',
+  },
+  title: {
+    color: grey900,
+  },
+  tabItemContainer: {
+    backgroundColor: 'white',
+  },
+  tab: {
+    color: grey900,
+    height: '64px',
+    padding: '0 30px',
+  },
+  tabButton: {
+    height: '64px',
+  },
+};
 
 const Header = () =>
   (
-    <nav className="nav-extended">
-      <div className="nav-wrapper brown darken-3">
-        <a href="/" className="brand-logo p-header__title">
-          <i className="material-icons">build</i>
-          Unscratch
-        </a>
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="job">Post a Job</Link></li>
-          <li><Link to="estimate">Give an Estimate</Link></li>
-        </ul>
-      </div>
-    </nav>
+    <AppBar
+      title={<Link to="/">Unscratch</Link>}
+      showMenuIconButton={false}
+      style={styles.nav}
+      titleStyle={styles.title}
+    >
+      <Tabs
+        tabItemContainerStyle={styles.tabItemContainer}
+      >
+        <Tab
+          style={styles.tab}
+          buttonStyle={styles.tabButton}
+          label="My Jobs"
+          containerElement={<Link to="/jobs" />}
+        />
+        <Tab
+          style={styles.tab}
+          buttonStyle={styles.tabButton}
+          label="My Quotes"
+          containerElement={<Link to="/quotes" />}
+        />
+      </Tabs>
+    </AppBar>
   );
 
 export default Header;
