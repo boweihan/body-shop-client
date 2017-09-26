@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import { grey600, grey900, lightBlueA400 } from 'material-ui/styles/colors';
 
+const height = '64px';
 const styles = {
   nav: {
     backgroundColor: 'white',
@@ -22,21 +24,24 @@ const styles = {
   },
   homeTab: {
     color: grey600,
-    height: '64px',
+    height,
     padding: '0 30px',
     fontWeight: 400,
   },
   tab: {
     color: grey600,
-    height: '64px',
+    height,
     padding: '0 30px',
     fontWeight: 400,
   },
   tabButton: {
-    height: '64px',
+    height,
   },
   titleIcon: {
     color: lightBlueA400,
+  },
+  loginButton: {
+    height,
   },
 };
 
@@ -76,6 +81,7 @@ const Header = () =>
           containerElement={<Link to="/quotes" />}
         />
       </Tabs>
+      <FlatButton style={styles.loginButton} label="Login" />
     </AppBar>
   );
 
