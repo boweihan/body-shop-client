@@ -6,6 +6,7 @@ import * as landingActions from '../redux/actions/landingActions';
 import * as userActions from '../redux/actions/userActions';
 import LandingMain from '../components/LandingMain';
 import LandingInfo from '../components/LandingInfo';
+import LandingFooter from '../components/LandingFooter';
 
 class HomeContainer extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class HomeContainer extends React.Component {
       <div>
         <LandingMain />
         <LandingInfo />
+        <LandingFooter />
       </div>
     );
   }
