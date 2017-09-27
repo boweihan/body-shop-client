@@ -20,33 +20,38 @@ export const loginSuccess = currentUser => ({
   currentUser,
 });
 
-const setAuthToken = (credentials) => {
+export const logout = () => ({
+  type: types.LOGOUT,
+});
+
+const setUserAndAuth = (credentials, currentUser) => {
   const authToken = btoa(`${credentials.email}:${credentials.password}`); // eslint-disable-line
   localStorage.setItem('authToken', authToken); // eslint-disable-line
+  localStorage.setItem('user', currentUser); // eslint-disable-line
 };
 
 export const login = credentials => async (dispatch) => {
   dispatch(loginLoading());
-  setAuthToken(credentials);
   try {
     const currentUser = await Api.post(
       URLS.getUser,
       { email: credentials.email },
     );
+    setUserAndAuth(credentials, currentUser);
     dispatch(loginSuccess(currentUser));
   } catch (e) {
     dispatch(loginFailed(e));
   }
 };
 
-export const signUp = user => async (dispatch) => {
+export const signup = user => async (dispatch) => {
   dispatch(loginLoading());
-  setAuthToken(user);
   try {
     const currentUser = await Api.post(
       URLS.createUser,
       user,
     );
+    setUserAndAuth(user, currentUser);
     dispatch(loginSuccess(currentUser));
   } catch (e) {
     dispatch(loginFailed(e));

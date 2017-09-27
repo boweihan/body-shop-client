@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 const height = '64px';
 const styles = {
-  loginButton: {
+  signupButton: {
     height,
   },
   dialog: {
@@ -18,10 +18,11 @@ const styles = {
 /**
  * A modal dialog can only be closed by selecting one of the actions.
  */
-class LoginButton extends React.Component {
+class SignupButton extends React.Component {
   state = {
     open: false,
     formData: {
+      name: '',
       email: '',
       password: '',
     },
@@ -41,7 +42,7 @@ class LoginButton extends React.Component {
    * fail the validation
    */
   isValid = () => {
-    if (!this.state.formData.email || !this.state.formData.password) {
+    if (!this.state.formData.name || !this.state.formData.email || !this.state.formData.password) {
       return false;
     }
     return !this.formRef.childs.some(child => !child.state.isValid);
@@ -57,7 +58,7 @@ class LoginButton extends React.Component {
     if (!this.isValid()) {
       return;
     }
-    this.props.login(this.state.formData);
+    this.props.signup(this.state.formData);
     this.handleClose();
   }
 
@@ -70,16 +71,16 @@ class LoginButton extends React.Component {
         onClick={this.handleClose}
       />,
       <FlatButton
-        label="Login"
+        label="Sign Up"
         primary={true}
         onClick={this.handleSubmit}
       />,
     ];
     return (
       <div>
-        <FlatButton style={styles.loginButton} label="Login" onClick={this.handleOpen} />
+        <FlatButton style={styles.signupButton} label="Sign Up" onClick={this.handleOpen} />
         <Dialog
-          title="Login"
+          title="Sign Up"
           actions={actions}
           modal={true}
           open={open}
@@ -89,6 +90,17 @@ class LoginButton extends React.Component {
             ref={(r) => { this.formRef = r; }}
             onSubmit={this.handleSubmit} // not needed, we use button to submit
           >
+            <TextValidator
+              floatingLabelText="Full Name"
+              onChange={this.handleChange}
+              name="name"
+              type="text"
+              value={formData.name}
+              fullWidth={true}
+              validators={['required']}
+              errorMessages={['this field is required']}
+            />
+            <br />
             <TextValidator
               floatingLabelText="Email"
               onChange={this.handleChange}
@@ -117,8 +129,8 @@ class LoginButton extends React.Component {
   }
 }
 
-LoginButton.propTypes = {
-  login: PropTypes.func.isRequired,
+SignupButton.propTypes = {
+  signup: PropTypes.func.isRequired,
 };
 
-export default LoginButton;
+export default SignupButton;

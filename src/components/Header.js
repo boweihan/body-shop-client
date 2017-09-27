@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import { Tabs, Tab } from 'material-ui/Tabs';
+import FlatButton from 'material-ui/FlatButton';
 import { grey600, grey900, lightBlueA400 } from 'material-ui/styles/colors';
 import PropTypes from 'prop-types';
 import LoginButton from './LoginButton';
+import SignupButton from './SignupButton';
 
 const height = '64px';
 const styles = {
@@ -42,9 +44,8 @@ const styles = {
     color: lightBlueA400,
   },
 };
-
-const Header = props =>
-  (
+const Header = (props) => {
+  return (
     <AppBar
       title={
         <Link style={styles.titleLink} to="/">
@@ -66,25 +67,37 @@ const Header = props =>
           label="Home"
           containerElement={<Link to="/" />}
         />
-        <Tab
-          style={styles.tab}
-          buttonStyle={styles.tabButton}
-          label="My Jobs"
-          containerElement={<Link to="/jobs" />}
-        />
-        <Tab
-          style={styles.tab}
-          buttonStyle={styles.tabButton}
-          label="My Quotes"
-          containerElement={<Link to="/quotes" />}
-        />
+        {props.user.currentUser ?
+          <Tab
+            style={styles.tab}
+            buttonStyle={styles.tabButton}
+            label="My Jobs"
+            containerElement={<Link to="/jobs" />}
+          /> :
+          null
+        }
+        {props.user.currentUser ?
+          <Tab
+            style={styles.tab}
+            buttonStyle={styles.tabButton}
+            label="My Quotes"
+            containerElement={<Link to="/quotes" />}
+          /> :
+          null
+        }
       </Tabs>
-      <LoginButton login={props.login} />
+      {props.user.currentUser ? null : <SignupButton signup={props.signup} />}
+      {props.user.currentUser ? null : <LoginButton login={props.login} />}
+      {props.user.currentUser ? <FlatButton style={styles.tabButton} label="Logout" onClick={props.logout} /> : null}
     </AppBar>
   );
+};
 
 Header.propTypes = {
   login: PropTypes.func.isRequired,
+  signup: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
+  user: PropTypes.object,
 };
 
 export default Header;
