@@ -8,7 +8,6 @@ import QuotePage from '../pages/QuotePage';
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
-    <Route path="home" component={HomePage} />
     <Route path="jobs" component={JobPage} />
     <Route path="quotes" component={QuotePage} />
   </Route>

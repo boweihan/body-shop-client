@@ -24,20 +24,24 @@ export const logout = () => ({
   type: types.LOGOUT,
 });
 
-const setUserAndAuth = (credentials, currentUser) => {
+const setAuthInCookies = (credentials) => {
   const authToken = btoa(`${credentials.email}:${credentials.password}`); // eslint-disable-line
   localStorage.setItem('authToken', authToken); // eslint-disable-line
+};
+
+const setUserInCookies = (currentUser) => {
   localStorage.setItem('user', currentUser); // eslint-disable-line
 };
 
 export const login = credentials => async (dispatch) => {
   dispatch(loginLoading());
+  setAuthInCookies(credentials);
   try {
     const currentUser = await Api.post(
       URLS.getUser,
       { email: credentials.email },
     );
-    setUserAndAuth(credentials, currentUser);
+    setUserInCookies(currentUser);
     dispatch(loginSuccess(currentUser));
   } catch (e) {
     dispatch(loginFailed(e));
@@ -46,12 +50,13 @@ export const login = credentials => async (dispatch) => {
 
 export const signup = user => async (dispatch) => {
   dispatch(loginLoading());
+  setAuthInCookies(user);
   try {
     const currentUser = await Api.post(
       URLS.createUser,
       user,
     );
-    setUserAndAuth(user, currentUser);
+    setUserInCookies(currentUser);
     dispatch(loginSuccess(currentUser));
   } catch (e) {
     dispatch(loginFailed(e));

@@ -6,10 +6,6 @@ import * as userActions from '../redux/actions/userActions';
 import Header from '../components/Header';
 
 class HeaderContainer extends React.Component {
-  state = {
-
-  }
-
   login = (credentials) => {
     this.props.userActions.login(credentials);
   }
