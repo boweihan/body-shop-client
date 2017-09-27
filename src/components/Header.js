@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 import AppBar from 'material-ui/AppBar';
-import FlatButton from 'material-ui/FlatButton';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import { grey600, grey900, lightBlueA400 } from 'material-ui/styles/colors';
+import LoginButton from './LoginButton';
 
 const height = '64px';
 const styles = {
@@ -39,9 +39,6 @@ const styles = {
   },
   titleIcon: {
     color: lightBlueA400,
-  },
-  loginButton: {
-    height,
   },
 };
 
@@ -81,7 +78,7 @@ const Header = () =>
           containerElement={<Link to="/quotes" />}
         />
       </Tabs>
-      <FlatButton style={styles.loginButton} label="Login" />
+      <LoginButton />
     </AppBar>
   );
 
