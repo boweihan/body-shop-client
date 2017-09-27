@@ -1,5 +1,11 @@
 module.exports = {
     "extends": "airbnb",
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": false,
+      "codeFrame": false
+    },
     "rules": {
         "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
         "max-len": ["error", 200],
@@ -9,5 +15,6 @@ module.exports = {
         "import/prefer-default-export": "off",
         "arrow-body-style": "off",
         "react/require-default-props": "off",
-    }
+        "react/jsx-boolean-value": "off",
+    },
 };

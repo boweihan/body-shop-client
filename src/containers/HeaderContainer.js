@@ -7,18 +7,22 @@ import * as userActions from '../redux/actions/userActions';
 import Header from '../components/Header';
 
 class HeaderContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log('header');
+  state = {
+
+  }
+
+  login = (credentials) => {
+    debugger;
+    this.props.userActions.login(credentials);
   }
 
   render() {
-    return <Header />;
+    return <Header login={this.login} />;
   }
 }
 
 HeaderContainer.propTypes = {
-
+  userActions: PropTypes.object.isRequired,
 };
 
 export default connect(

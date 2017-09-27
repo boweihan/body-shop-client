@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import { grey600, grey900, lightBlueA400 } from 'material-ui/styles/colors';
+import PropTypes from 'prop-types';
 import LoginButton from './LoginButton';
 
 const height = '64px';
@@ -42,7 +43,7 @@ const styles = {
   },
 };
 
-const Header = () =>
+const Header = props =>
   (
     <AppBar
       title={
@@ -78,8 +79,12 @@ const Header = () =>
           containerElement={<Link to="/quotes" />}
         />
       </Tabs>
-      <LoginButton />
+      <LoginButton login={props.login} />
     </AppBar>
   );
+
+Header.propTypes = {
+  login: PropTypes.func.isRequired,
+};
 
 export default Header;

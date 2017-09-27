@@ -1,7 +1,9 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import TextField from 'material-ui/TextField';
+import { ValidatorForm } from 'react-form-validator-core';
+import { TextValidator } from 'react-material-ui-form-validator';
+import PropTypes from 'prop-types';
 
 const height = '64px';
 const styles = {
@@ -9,40 +11,71 @@ const styles = {
     height,
   },
   dialog: {
+    maxWidth: '400px',
   },
 };
 
 /**
  * A modal dialog can only be closed by selecting one of the actions.
  */
-export default class LoginButton extends React.Component {
-  state = { // TODO: Fix eslint
+class LoginButton extends React.Component {
+  state = {
     open: false,
+    formData: {
+      email: '',
+      password: '',
+    },
+    errors: false,
   };
 
   handleOpen = () => {
-    this.setState({open: true});
-  };
+    this.setState({ open: true });
+  }
 
   handleClose = () => {
-    this.setState({open: false});
-  };
+    this.setState({ open: false });
+  }
+
+  /**
+   * Leverages react-material-ui-form-validator for form validation
+   * If there's an invalid field or a required field hasn't been filled out
+   * fail the validation
+   */
+  isValid = () => {
+    if (!this.state.formData.email || !this.state.formData.password) {
+      return false;
+    }
+    return !this.formRef.childs.some(child => !child.state.isValid);
+  }
+
+  handleChange = (event) => {
+    const { formData } = this.state;
+    formData[event.target.name] = event.target.value;
+    this.setState({ formData });
+  }
+
+  handleSubmit = () => {
+    if (!this.isValid()) {
+      return;
+    }
+    this.props.login(this.state.formData);
+    this.handleClose();
+  }
 
   render() {
+    const { open, formData } = this.state;
     const actions = [
       <FlatButton
         label="Cancel"
-        primary={true}
+        primary={false}
         onClick={this.handleClose}
       />,
       <FlatButton
         label="Login"
         primary={true}
-        disabled={false}
-        onClick={this.handleClose}
+        onClick={this.handleSubmit}
       />,
     ];
-
     return (
       <div>
         <FlatButton style={styles.loginButton} label="Login" onClick={this.handleOpen} />
@@ -50,26 +83,43 @@ export default class LoginButton extends React.Component {
           title="Login"
           actions={actions}
           modal={true}
-          open={this.state.open}
-          style={styles.dialog}
+          open={open}
+          contentStyle={styles.dialog}
         >
-          <TextField
-            hintText="Email"
-            floatingLabelText="Email"
-            type="email"
-            fullWidth={true}
-            errorText="This field is required"
-            style={styles.modalButton}
-          /><br />
-          <TextField
-            hintText="Password Field"
-            floatingLabelText="Password"
-            type="password"
-            fullWidth={true}
-            style={styles.modalButton}
-          />
+          <ValidatorForm
+            ref={(r) => { this.formRef = r; }}
+            onSubmit={this.handleSubmit} // not needed, we use button to submit
+          >
+            <TextValidator
+              floatingLabelText="Email *"
+              onChange={this.handleChange}
+              name="email"
+              type="email"
+              value={formData.email}
+              fullWidth={true}
+              validators={['required', 'isEmail']}
+              errorMessages={['this field is required', 'email is not valid']}
+            />
+            <br />
+            <TextValidator
+              floatingLabelText="Password *"
+              onChange={this.handleChange}
+              name="password"
+              type="password"
+              value={formData.password}
+              fullWidth={true}
+              validators={['required']}
+              errorMessages={['this field is required']}
+            />
+          </ValidatorForm>
         </Dialog>
       </div>
     );
   }
 }
+
+LoginButton.propTypes = {
+  login: PropTypes.func.isRequired,
+};
+
+export default LoginButton;
