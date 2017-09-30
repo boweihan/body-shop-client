@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import FlatButton from 'material-ui/FlatButton';
@@ -50,6 +50,15 @@ const styles = {
     color: lightBlueA400,
   },
 };
+
+const currentRouteIndex = () => {
+  const location = browserHistory.getCurrentLocation();
+  switch (true) {
+    case location.pathname.includes('/private'): return 1;
+    default: return 0;
+  }
+};
+
 const Header = (props) => {
   return (
     <AppBar
@@ -66,6 +75,7 @@ const Header = (props) => {
       <Tabs
         tabItemContainerStyle={styles.tabItemContainer}
         inkBarStyle={styles.inkBar}
+        initialSelectedIndex={currentRouteIndex()}
       >
         <Tab
           style={styles.homeTab}
@@ -78,7 +88,7 @@ const Header = (props) => {
             style={styles.tab}
             buttonStyle={styles.tabButton}
             label="Control Panel"
-            containerElement={<Link to="/cpanel" />}
+            containerElement={<Link to="/private" />}
           /> :
           null
         }

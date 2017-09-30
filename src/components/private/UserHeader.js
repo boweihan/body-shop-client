@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import FlatButton from 'material-ui/FlatButton';
-import { grey600, grey900, lightBlueA400 } from 'material-ui/styles/colors';
+import { grey100, grey600, grey900, lightBlueA400 } from 'material-ui/styles/colors';
 
 const height = '40px';
 const styles = {
@@ -15,6 +15,8 @@ const styles = {
   title: {
     color: grey900,
     height,
+    flex: 'none',
+    width: '20%',
   },
   titleLink: {
     textDecoration: 'none',
@@ -23,10 +25,10 @@ const styles = {
     backgroundColor: grey600,
   },
   inkBar: {
-    background: grey900,
+    background: grey100,
   },
   tab: {
-    color: 'white',
+    color: grey100,
     height,
     padding: '0 30px',
     fontWeight: 400,
@@ -39,6 +41,16 @@ const styles = {
     textTransform: 'none',
   },
 };
+
+const currentRouteIndex = () => {
+  const location = browserHistory.getCurrentLocation();
+  switch (true) {
+    case location.pathname.includes('/private/jobs'): return 0;
+    case location.pathname.includes('/private/quotes'): return 1;
+    default: return 0;
+  }
+};
+
 const Header = () => {
   return (
     <AppBar
@@ -50,18 +62,19 @@ const Header = () => {
       <Tabs
         tabItemContainerStyle={styles.tabItemContainer}
         inkBarStyle={styles.inkBar}
+        initialSelectedIndex={currentRouteIndex()}
       >
         <Tab
           style={styles.tab}
           buttonStyle={styles.tabButton}
-          label="Home"
-          containerElement={<Link to="/" />}
+          label="My Work Requests"
+          containerElement={<Link to="/private/jobs" />}
         />
         <Tab
           style={styles.tab}
           buttonStyle={styles.tabButton}
-          label="Control Panel"
-          containerElement={<Link to="/cpanel" />}
+          label="My Estimates"
+          containerElement={<Link to="/private/quotes" />}
         />
       </Tabs>
     </AppBar>
