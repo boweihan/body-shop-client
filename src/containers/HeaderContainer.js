@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import * as userActions from '../redux/actions/userActions';
-import Header from '../components/Header';
+import Header from '../components/public/Header';
 
 class HeaderContainer extends React.Component {
   login = (credentials) => {

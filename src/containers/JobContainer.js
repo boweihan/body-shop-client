@@ -1,5 +1,5 @@
 import React from 'react';
-import JobGrid from '../components/JobGrid';
+import JobGrid from '../components/private/JobGrid';
 
 const JobContainer = () =>
   (

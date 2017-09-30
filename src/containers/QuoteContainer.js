@@ -1,5 +1,5 @@
 import React from 'react';
-import QuoteGrid from '../components/QuoteGrid';
+import QuoteGrid from '../components/private/QuoteGrid';
 
 const QuoteContainer = () =>
   (

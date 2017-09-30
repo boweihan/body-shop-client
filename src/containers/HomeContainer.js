@@ -1,7 +1,7 @@
 import React from 'react';
-import LandingMain from '../components/LandingMain';
-import LandingInfo from '../components/LandingInfo';
-import LandingFooter from '../components/LandingFooter';
+import LandingMain from '../components/public/LandingMain';
+import LandingInfo from '../components/public/LandingInfo';
+import LandingFooter from '../components/public/LandingFooter';
 
 const HomeContainer = () =>
   (

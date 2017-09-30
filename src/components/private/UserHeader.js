@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import { Tabs, Tab } from 'material-ui/Tabs';
-import FlatButton from 'material-ui/FlatButton';
 import { grey100, grey600, grey900, lightBlueA400 } from 'material-ui/styles/colors';
 
 const height = '40px';
@@ -15,8 +14,6 @@ const styles = {
   title: {
     color: grey900,
     height,
-    flex: 'none',
-    width: '20%',
   },
   titleLink: {
     textDecoration: 'none',
@@ -67,13 +64,31 @@ const Header = () => {
         <Tab
           style={styles.tab}
           buttonStyle={styles.tabButton}
-          label="My Work Requests"
+          label="Post a Job"
+          containerElement={<Link to="/private/start" />}
+        />
+        <Tab
+          style={styles.tab}
+          buttonStyle={styles.tabButton}
+          label="My Jobs"
           containerElement={<Link to="/private/jobs" />}
         />
         <Tab
           style={styles.tab}
           buttonStyle={styles.tabButton}
           label="My Estimates"
+          containerElement={<Link to="/private/quotes" />}
+        />
+        <Tab
+          style={styles.tab}
+          buttonStyle={styles.tabButton}
+          label="Dashboard"
+          containerElement={<Link to="/private/quotes" />}
+        />
+        <Tab
+          style={styles.tab}
+          buttonStyle={styles.tabButton}
+          label="My Account"
           containerElement={<Link to="/private/quotes" />}
         />
       </Tabs>
