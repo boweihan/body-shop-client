@@ -13,6 +13,9 @@ const styles = {
   dialog: {
     maxWidth: '400px',
   },
+  tabButtonLabel: {
+    textTransform: 'none',
+  },
 };
 
 /**
@@ -77,7 +80,7 @@ class LoginButton extends React.Component {
     ];
     return (
       <div>
-        <FlatButton style={styles.loginButton} label="Login" onClick={this.handleOpen} />
+        <FlatButton labelStyle={styles.tabButtonLabel} style={styles.loginButton} label="Login" onClick={this.handleOpen} />
         <Dialog
           title="Login"
           actions={actions}

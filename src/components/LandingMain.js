@@ -14,7 +14,7 @@ const styles = {
 const landingMain = () =>
   (
     <div className="c-landing__container">
-      <h1 className="c-landing__title">Unscratch</h1>
+      <h1 className="c-landing__title">InsertName</h1>
       <h1 className="c-landing__description">Fixing your car should be as simple as the snap of a picture</h1>
       <FlatButton
         style={styles.mainButton}

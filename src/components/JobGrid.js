@@ -27,7 +27,7 @@ for (let i = 0; i < 20; i += 1) {
   tilesData.push({
     id: i,
     title: 'Stock Car',
-    author: 'Unscratch',
+    author: 'InsertName',
   });
 }
 

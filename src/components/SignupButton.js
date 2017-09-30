@@ -13,6 +13,9 @@ const styles = {
   dialog: {
     maxWidth: '400px',
   },
+  tabButtonLabel: {
+    textTransform: 'none',
+  },
 };
 
 /**
@@ -78,7 +81,7 @@ class SignupButton extends React.Component {
     ];
     return (
       <div>
-        <FlatButton style={styles.signupButton} label="Sign Up" onClick={this.handleOpen} />
+        <FlatButton labelStyle={styles.tabButtonLabel} style={styles.signupButton} label="Sign Up" onClick={this.handleOpen} />
         <Dialog
           title="Sign Up"
           actions={actions}

@@ -15,6 +15,7 @@ const styles = {
   },
   title: {
     color: grey900,
+    height,
   },
   titleLink: {
     textDecoration: 'none',
@@ -30,15 +31,20 @@ const styles = {
     height,
     padding: '0 30px',
     fontWeight: 400,
+    textTransform: 'none',
   },
   tab: {
     color: grey600,
     height,
     padding: '0 30px',
     fontWeight: 400,
+    textTransform: 'none',
   },
   tabButton: {
     height,
+  },
+  tabButtonLabel: {
+    textTransform: 'none',
   },
   titleIcon: {
     color: lightBlueA400,
@@ -71,24 +77,22 @@ const Header = (props) => {
           <Tab
             style={styles.tab}
             buttonStyle={styles.tabButton}
-            label="My Jobs"
-            containerElement={<Link to="/jobs" />}
-          /> :
-          null
-        }
-        {props.user.currentUser ?
-          <Tab
-            style={styles.tab}
-            buttonStyle={styles.tabButton}
-            label="My Quotes"
-            containerElement={<Link to="/quotes" />}
+            label="Control Panel"
+            containerElement={<Link to="/cpanel" />}
           /> :
           null
         }
       </Tabs>
       {props.user.currentUser ? null : <SignupButton signup={props.signup} />}
       {props.user.currentUser ? null : <LoginButton login={props.login} />}
-      {props.user.currentUser ? <FlatButton style={styles.tabButton} label="Logout" onClick={props.logout} /> : null}
+      {props.user.currentUser ?
+        <FlatButton
+          labelStyle={styles.tabButtonLabel}
+          style={styles.tabButton}
+          label="Logout"
+          onClick={props.logout}
+        /> : null
+      }
     </AppBar>
   );
 };
