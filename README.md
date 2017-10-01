@@ -1,12 +1,13 @@
-This project was bootstrapped with Create React App and Redux, Sass Structure.
-
-# Getting Started
+The front end for InsertName.
 
 ## Dependencies
 
 * React
   * react
   * react-dom
+  * react-form-validator-core
+  * react-material-ui-form-validator
+  * prop-types
 
 * Create React App
   * react-scripts
@@ -18,15 +19,15 @@ This project was bootstrapped with Create React App and Redux, Sass Structure.
   * react-router-redux
   * redux-thunk
 
-* Sass
+* Styling
   * node-sass-chokidar
+  * material-ui
 
 * Fetch
   * api-book
   * babel-polyfill
+  * Api.js
 
-* Github Deployment Tool
-    * gh-pages
 
 ### Runs the app in development mode
 
@@ -72,6 +73,3 @@ And runs
 ```bash
 npm run deploy
 ```
-
-http://materializecss.com/color.html
-https://material.io/icons/#ic_build
