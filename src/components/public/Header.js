@@ -25,6 +25,7 @@ const styles = {
   },
   inkBar: {
     background: lightBlueA400,
+    height: '5px',
   },
   homeTab: {
     color: grey600,

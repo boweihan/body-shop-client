@@ -2,7 +2,13 @@ import React from 'react';
 import { Link, browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import { Tabs, Tab } from 'material-ui/Tabs';
+import IconButton from 'material-ui/IconButton';
 import { grey100, grey600, grey900, lightBlueA400 } from 'material-ui/styles/colors';
+import MessageIcon from 'material-ui/svg-icons/communication/message';
+import CarIcon from 'material-ui/svg-icons/maps/directions-car';
+import QuoteIcon from 'material-ui/svg-icons/action/assessment';
+import DashboardIcon from 'material-ui/svg-icons/action/dashboard';
+import SettingsIcon from 'material-ui/svg-icons/action/settings';
 
 const height = '40px';
 const styles = {
@@ -10,10 +16,13 @@ const styles = {
     backgroundColor: grey600,
     borderTop: '2px solid',
     borderColor: lightBlueA400,
+    display: 'block',
+    padding: '0 20%',
   },
   title: {
     color: grey900,
     height,
+    display: 'none',
   },
   titleLink: {
     textDecoration: 'none',
@@ -23,6 +32,7 @@ const styles = {
   },
   inkBar: {
     background: grey100,
+    height: '5px',
   },
   tab: {
     color: grey100,
@@ -62,33 +72,43 @@ const Header = () => {
         initialSelectedIndex={currentRouteIndex()}
       >
         <Tab
+          className="c-userHeader__tab"
           style={styles.tab}
           buttonStyle={styles.tabButton}
-          label="Post a Job"
+          icon={<IconButton className="c-userHeader__tabIcon"><MessageIcon color={grey100} /></IconButton>}
+          label={<span className="c-userHeader__tabText">Post a Job</span>}
           containerElement={<Link to="/private/start" />}
         />
         <Tab
+          className="c-userHeader__tab"
           style={styles.tab}
           buttonStyle={styles.tabButton}
-          label="My Jobs"
+          icon={<IconButton className="c-userHeader__tabIcon"><CarIcon color={grey100} /></IconButton>}
+          label={<span className="c-userHeader__tabText">My Jobs</span>}
           containerElement={<Link to="/private/jobs" />}
         />
         <Tab
+          className="c-userHeader__tab"
           style={styles.tab}
           buttonStyle={styles.tabButton}
-          label="My Estimates"
+          icon={<IconButton className="c-userHeader__tabIcon"><QuoteIcon color={grey100} /></IconButton>}
+          label={<span className="c-userHeader__tabText">My Quotes</span>}
           containerElement={<Link to="/private/quotes" />}
         />
         <Tab
+          className="c-userHeader__tab"
           style={styles.tab}
           buttonStyle={styles.tabButton}
-          label="Dashboard"
+          icon={<IconButton className="c-userHeader__tabIcon"><DashboardIcon color={grey100} /></IconButton>}
+          label={<span className="c-userHeader__tabText">Dashboard</span>}
           containerElement={<Link to="/private/quotes" />}
         />
         <Tab
+          className="c-userHeader__tab"
           style={styles.tab}
           buttonStyle={styles.tabButton}
-          label="My Account"
+          icon={<IconButton className="c-userHeader__tabIcon"><SettingsIcon color={grey100} /></IconButton>}
+          label={<span className="c-userHeader__tabText">Account</span>}
           containerElement={<Link to="/private/quotes" />}
         />
       </Tabs>
