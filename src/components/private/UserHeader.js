@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import IconButton from 'material-ui/IconButton';
@@ -50,13 +50,13 @@ const styles = {
 };
 
 const currentRouteIndex = () => {
-  // const location = browserHistory.getCurrentLocation();
-  // switch (true) {
-  //   case location.pathname.includes('/private/jobs'): return 0;
-  //   case location.pathname.includes('/private/quotes'): return 1;
-  //   default: return 0;
-  // }
-  return 0;
+  const hash = window.location.hash; // eslint-disable-line
+  switch (true) {
+    case hash.includes('/private/start'): return 0;
+    case hash.includes('/private/jobs'): return 1;
+    case hash.includes('/private/quotes'): return 2;
+    default: return 0;
+  }
 };
 
 const Header = () => {

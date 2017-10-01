@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import FlatButton from 'material-ui/FlatButton';
@@ -53,12 +53,11 @@ const styles = {
 };
 
 const currentRouteIndex = () => {
-  // const location = browserHistory.getCurrentLocation();
-  // switch (true) {
-  //   case location.pathname.includes('/private'): return 1;
-  //   default: return 0;
-  // }
-  return 0;
+  const hash = window.location.hash; // eslint-disable-line
+  switch (true) {
+    case hash.includes('/private'): return 1;
+    default: return 0;
+  }
 };
 
 const Header = (props) => {
