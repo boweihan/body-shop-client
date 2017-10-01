@@ -11,7 +11,7 @@ const styles = {
   },
 };
 
-const landingMain = () =>
+const LandingMain = () =>
   (
     <div className="c-landing__container">
       <h1 className="c-landing__title">InsertName</h1>
@@ -24,4 +24,4 @@ const landingMain = () =>
     </div>
   );
 
-export default landingMain;
+export default LandingMain;

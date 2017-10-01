@@ -30,7 +30,7 @@ const setAuthInCookies = (credentials) => {
 };
 
 const setUserInCookies = (currentUser) => {
-  localStorage.setItem('user', currentUser); // eslint-disable-line
+  localStorage.setItem('user', JSON.stringify(currentUser)); // eslint-disable-line
 };
 
 export const login = credentials => async (dispatch) => {

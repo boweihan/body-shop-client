@@ -16,5 +16,6 @@ module.exports = {
         "arrow-body-style": "off",
         "react/require-default-props": "off",
         "react/jsx-boolean-value": "off",
+        "react/prefer-stateless-function": "off",
     },
 };

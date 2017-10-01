@@ -1,10 +1,10 @@
 import React from 'react';
-import QuoteGrid from '../components/private/QuoteGrid';
+import QuoteComponent from '../components/private/QuoteComponent';
 
 const QuoteContainer = () =>
   (
     <div>
-      <QuoteGrid />
+      <QuoteComponent />
     </div>
   );
 

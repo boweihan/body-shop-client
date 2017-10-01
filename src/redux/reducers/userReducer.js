@@ -7,7 +7,7 @@ import * as types from '../ActionTypes';
  */
 const userState = {
   // null or user
-  currentUser: localStorage.getItem('user'), // eslint-disable-line
+  currentUser: JSON.parse(localStorage.getItem('user')), // eslint-disable-line
   requestPending: false,
 };
 

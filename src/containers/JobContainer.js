@@ -1,10 +1,10 @@
 import React from 'react';
-import JobGrid from '../components/private/JobGrid';
+import JobComponent from '../components/private/JobComponent';
 
 const JobContainer = () =>
   (
     <div>
-      <JobGrid />
+      <JobComponent />
     </div>
   );
 

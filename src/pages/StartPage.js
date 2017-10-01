@@ -1,10 +1,10 @@
 import React from 'react';
-import JobContainer from '../containers/JobContainer';
+import StartContainer from '../containers/StartContainer';
 
 const StartPage = () =>
   (
     <main>
-      <JobContainer />
+      <StartContainer />
     </main>
   );
 
