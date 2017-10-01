@@ -5,16 +5,20 @@ import * as types from '../ActionTypes';
  * Eventually split this into better login states
  * Create user state from localStorage on instantiation if it exists
  */
-const user = localStorage.getItem('user'); // eslint-disable-line
-let currentUser;
-try {
-  currentUser = JSON.parse(user);
-} catch (e) {
-  currentUser = null;
+function getCurrentUser() {
+  const user = localStorage.getItem('user'); // eslint-disable-line
+  let currentUser;
+  try {
+    currentUser = JSON.parse(user);
+  } catch (e) {
+    currentUser = null;
+  }
+  return currentUser;
 }
+
 const userState = {
   // null or user
-  currentUser,
+  currentUser: getCurrentUser(),
   requestPending: false,
 };
 
