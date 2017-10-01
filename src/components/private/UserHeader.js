@@ -50,12 +50,13 @@ const styles = {
 };
 
 const currentRouteIndex = () => {
-  const location = browserHistory.getCurrentLocation();
-  switch (true) {
-    case location.pathname.includes('/private/jobs'): return 0;
-    case location.pathname.includes('/private/quotes'): return 1;
-    default: return 0;
-  }
+  // const location = browserHistory.getCurrentLocation();
+  // switch (true) {
+  //   case location.pathname.includes('/private/jobs'): return 0;
+  //   case location.pathname.includes('/private/quotes'): return 1;
+  //   default: return 0;
+  // }
+  return 0;
 };
 
 const Header = () => {

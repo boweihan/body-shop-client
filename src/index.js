@@ -6,7 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
 // import { cyan500 } from 'material-ui/styles/colors';
 // If your server supports server rendering, use browserHistory replace with hashHistory.
-import { Router, browserHistory } from 'react-router';
+import { Router, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { configureStore } from './app/store';
 import registerServiceWorker from './app/registerServiceWorker';
@@ -14,8 +14,8 @@ import routes from './app/routes';
 import './styles/main.css';
 
 const state = window.__initialState__ || undefined; // eslint-disable-line
-const store = configureStore(browserHistory, state);
-const history = syncHistoryWithStore(browserHistory, store);
+const store = configureStore(hashHistory, state);
+const history = syncHistoryWithStore(hashHistory, store);
 
 // This replaces the textColor value on the palette
 // and then update the keys for each component that depends on it.
@@ -28,6 +28,9 @@ const history = syncHistoryWithStore(browserHistory, store);
 //     height: 50,
 //   },
 // });
+
+// TODO; Switch to browser history for production
+// https://medium.com/@patriciolpezjuri/using-create-react-app-with-react-router-express-js-8fa658bf892d
 
 ReactDOM.render(
   <Provider store={store}>

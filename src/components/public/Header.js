@@ -53,11 +53,12 @@ const styles = {
 };
 
 const currentRouteIndex = () => {
-  const location = browserHistory.getCurrentLocation();
-  switch (true) {
-    case location.pathname.includes('/private'): return 1;
-    default: return 0;
-  }
+  // const location = browserHistory.getCurrentLocation();
+  // switch (true) {
+  //   case location.pathname.includes('/private'): return 1;
+  //   default: return 0;
+  // }
+  return 0;
 };
 
 const Header = (props) => {
